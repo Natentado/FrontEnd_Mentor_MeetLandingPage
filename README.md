@@ -1,7 +1,7 @@
 # Frontend Mentor - Meet landing page
 
-![Design preview for the Meet landing page coding challenge](./preview.jpg)
-
 ## Welcome! 👋
 
-This time i codded this challenge with only basic styles and  patterns.
+This time i codded this challenge with only basic styles and patterns.
+
+Live Project Link: https://meet-landing-page-nu-two.vercel.app/
