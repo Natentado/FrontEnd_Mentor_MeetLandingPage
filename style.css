@@ -31,7 +31,7 @@
         font: 900 48px/110% "Red Hat Display", serif;
     }
     
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         font: 900 64px/110% "Red Hat Display", serif;
     }
 }
@@ -43,7 +43,7 @@
         font: 900 36px/110% "Red Hat Display", serif;
     }
     
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         font: 900 40px/110% "Red Hat Display", serif;
     }
 }
@@ -56,7 +56,7 @@
         font: 900 14px/110% "Red Hat Display", serif; 
     }
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         font: 900 16px/110% "Red Hat Display", serif; 
     }
 }
@@ -64,7 +64,7 @@
 .text-preset-4 {
     font: 500 16px/150% "Red Hat Display", serif;
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         font: 500 18px/150% "Red Hat Display", serif;
     }
 }
@@ -155,9 +155,15 @@ body{
             gap: 48px;
             padding: 64px 0 32px 0;
 
-            > img{
+            .left-img-container,
+            .right-img-container{
                 display: none;
+
+                > img{
+                    display: none;
+                }
             }
+
 
             picture img{
                 width: 100%;
@@ -242,20 +248,14 @@ body{
             z-index: 9;
         }
 
-        div:last-child{
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-            padding: 64px 32px;
+        > div:last-child{
             background: url("./assets/mobile/image-footer.jpg");
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
             text-align: center;
             isolation: isolate;
-
+            
             &:last-child::after {
                 content: "";
                 position: absolute;
@@ -263,15 +263,24 @@ body{
                 background: rgba(77, 150, 169, 0.75);
                 z-index: -1;
             }
-
-            h2{
-                color: var(--white);
+            
+            div:last-child{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                padding: 64px 32px;
+    
+                h2{
+                    color: var(--white);
+                }
+    
+                p{
+                    color: var(--white);
+                }
             }
-
-            p{
-                color: var(--white);
-            }
-        }
+        } 
     }
 
     @media(min-width: 768px){
@@ -318,27 +327,28 @@ body{
         }
 
         footer{
-            div:last-child{
+            > div:last-child{
                 background: url("./assets/tablet/image-footer.jpg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
 
-                p{
+                div:last-child{
                     max-width: 500px;
+                    margin: 0 auto;
+                    padding: 64px 0;
                 }
-            }
+            } 
         }
     }
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         header{
             padding-top: 80px;
         }
 
         main {
             section:first-child{
-                position: relative;
                 justify-content: center;
                 flex-direction: row;
                 gap: 32px;
@@ -347,22 +357,42 @@ body{
                     display: none;
                 }
 
-                img{
+                .left-img-container,
+                .right-img-container{
+                    position: relative;
                     display: block;
-                    position: absolute;
-                    top: 64px;
-                    right: -30px;
+                    max-width: 360px;
+                    min-width: unset;
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                
+                    img{
+                        position: absolute;
+                        top: 0;
+                        right: -30px;
+                        display: block;
+                        width: 100%;
+                    }
 
-                    &:last-child{
+                    &.right-img-container img{
+                        top: 48px;
+                    }
+
+                    &.left-img-container img{
                         right: unset;
                         left: -30px;
                     }
                 }
 
+
                 > div{
                     justify-content: space-between;
-                    gap: 32px   ;
+                    gap: 32px;
                     max-width: 500px;
+                    min-width: 450px;
+                    width: 100%;
+                    padding: 0;
                 }
             } 
 
@@ -374,12 +404,30 @@ body{
         }
 
         footer{
-            div:last-child{
+            > div:last-child{
                 background: url("./assets/desktop/image-footer.jpg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
-            }
+                text-align: start;
+                
+                div:last-child{
+                    flex-direction: row;
+                    justify-content: space-between;
+                    max-width: 1120px;
+                    height: 312px;
+                    margin: 0 auto;
+                    background: unset;
+
+                    h2{
+                        max-width: 450px;
+                    }
+
+                    p{
+                        max-width: 350px;
+                    }
+                }
+            } 
         }
     }
 }
